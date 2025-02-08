@@ -13,7 +13,7 @@ return new class extends Migration
             $table->string('full_name');  
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('phone_number');
+            $table->string('phone_number')->unique();
             $table->enum('role', ['user', 'admin'])->default('user');
             $table->timestamps();
         });

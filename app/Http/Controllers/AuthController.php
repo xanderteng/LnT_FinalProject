@@ -64,7 +64,7 @@ class AuthController extends Controller
             'full_name' => 'required|string|min:3|max:40',
             'email' => ['required', 'string', 'regex:/^[\w.+\-]+@gmail\.com$/i', 'unique:users,email'],
             'password' => 'required|string|min:6|max:12',
-            'phone_number' => ['required', 'string', 'regex:/^08[0-9]{8,}$/']
+            'phone_number' => ['required', 'string', 'regex:/^08[0-9]{8,}$/', 'unique:users,phone_number']
         ], [
             'full_name.required' => 'Full Name is required.',
             'full_name.min' => 'Full Name must be at least 3 characters.',
@@ -76,6 +76,7 @@ class AuthController extends Controller
             'password.min' => 'Password must be at least 6 characters.',
             'password.max' => 'Password must not exceed 12 characters.',
             'phone_number.required' => 'Phone Number is required.',
+            'phone_number.unique' => 'This Phone Number is already registered.',
             'phone_number.regex' => 'Phone Number must start with 08 and contain at least 10 digits.'
         ]);
 
