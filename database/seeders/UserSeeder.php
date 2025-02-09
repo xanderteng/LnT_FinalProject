@@ -12,7 +12,7 @@ class UserSeeder extends Seeder
     {
         // Create Admin Acc
         User::create([
-            'full_name' => 'Admin User',
+            'full_name' => 'Admin Team',
             'email' => 'admin@example.com',
             'password' => Hash::make('admin123'),
             'phone_number' => '081234567890',

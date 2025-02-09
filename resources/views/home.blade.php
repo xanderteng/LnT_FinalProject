@@ -29,7 +29,7 @@
     <!-- Hero -->
     <section class="hero">
         <h1>Welcome to ChipiChapa Shop</h1>
-        <p>Your shop service that brings unique and sustainable items to your life.</p>
+        <p>Your shop service that brings web-based items to life.</p>
         <a href="{{ route('getLogin') }}">
             <button>Get Started</button>
         </a>

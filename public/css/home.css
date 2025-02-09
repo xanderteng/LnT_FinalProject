@@ -118,5 +118,6 @@ nav .nav-link-button:hover {
     color: #fff;
     border: none;
     padding: 0.8rem 2rem;
+    margin-top: 0.6rem;
     cursor: pointer;
 }

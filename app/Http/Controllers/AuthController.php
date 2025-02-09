@@ -33,14 +33,17 @@ class AuthController extends Controller
             'password' => $request->password
         ];
 
-        if ($user->email === 'admin@gmail.com' && $user->role !== 'admin') {
-            $user->role = 'admin';
-            $user->save();
-        }
-
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            Cookie::queue('email', Auth::user()->email);
+
+            $user = Auth::user();  
+
+            if ($user->email === 'admin@gmail.com' && $user->role !== 'admin') {
+                $user->role = 'admin';
+                $user->save();
+            }
+
+            Cookie::queue('email', $user->email);
             Log::info($user->email . ' is logged in as ' . $user->role . '.');
             return redirect('/');
         }
@@ -51,9 +54,13 @@ class AuthController extends Controller
     }
 
 
+
     //Show Register 
     public function getRegister()
     {
+        if (Auth::check()) {
+            return redirect()->route('home');
+        }
         return view('register');
     }
 
