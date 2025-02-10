@@ -12,7 +12,7 @@
     <nav>
         <div class="nav-left">
             <a href="{{ route('home') }}">Home</a>
-            <a href="#">Items</a>
+            <a href="{{ route('product') }}">Our Products</a>
         </div>
     </nav>
 

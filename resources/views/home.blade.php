@@ -12,7 +12,10 @@
     <nav>
         <div class="nav-left">
             <a href="{{ route('home') }}">Home</a>
-            <a href="#">Items</a>
+            <a href="{{ route('product') }}">Our Products</a>
+            @if(Auth::check())
+            <a href="#">Shopping Cart</a>
+            @endif
         </div>
         <div class="nav-right">
             @if(Auth::check())
@@ -29,7 +32,7 @@
     <!-- Hero -->
     <section class="hero">
         <h1>Welcome to ChipiChapa Shop</h1>
-        <p>Your shop service that brings web-based items to life.</p>
+        <p>Your shop service that brings sustainable items to your life.</p>
         <a href="{{ route('getLogin') }}">
             <button>Get Started</button>
         </a>

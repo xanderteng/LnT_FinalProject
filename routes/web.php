@@ -14,3 +14,9 @@ Route::controller(AuthController::class)->group(function () {
     Route::post('/register', 'register')->name('register');
     Route::post('/logout', 'logout')->name('logout');
 });
+
+Route::get('/product', function () {
+    $categories = \App\Models\Category::all();
+    $items = \App\Models\Item::with('category')->get();
+    return view('products', compact('categories', 'items'));
+})->name('product');
