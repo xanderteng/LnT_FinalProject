@@ -33,7 +33,7 @@
     <section class="hero">
         <h1>Welcome to ChipiChapa Shop</h1>
         <p>Your shop service that brings sustainable items to your life.</p>
-        <a href="{{ route('getLogin') }}">
+        <a href="{{ Auth::check() ? route('product') : route('getLogin') }}">
             <button>Get Started</button>
         </a>
     </section>

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ProductController;
 
 Route::get('/', function () {
     return view('home');
@@ -15,8 +16,4 @@ Route::controller(AuthController::class)->group(function () {
     Route::post('/logout', 'logout')->name('logout');
 });
 
-Route::get('/product', function () {
-    $categories = \App\Models\Category::all();
-    $items = \App\Models\Item::with('category')->get();
-    return view('products', compact('categories', 'items'));
-})->name('product');
+Route::get('/product', [ProductController::class, 'index'])->name('product');
