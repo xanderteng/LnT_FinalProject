@@ -37,6 +37,9 @@
         @if (session('error'))
             <p style="color: red;">{{ session('error') }}</p>
         @endif
+        @if(session('message'))
+            <p style="color: red; text-align: center;">{{ session('message') }}</p>
+        @endif
 
         <form class="login-form" action="{{ route('login') }}" method="POST">
             @csrf

@@ -1,0 +1,225 @@
+/* Import Navbar Styling from Home */
+@import url('home.css');
+
+/* General Cart Section Styling */
+.cart-section {
+    padding: 2rem;
+    background-color: #fffaf0; /* Floral White for a soft earthy background */
+    color: #4a2e2b; /* Deep brown for text */
+    font-family: 'Arial', sans-serif;
+}
+
+.cart-section h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+/* Individual Cart Items */
+.cart-item {
+    display: flex;
+    align-items: center;
+    background-color: #e6ccb2; /* Light beige */
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.cart-item-image {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-right: 1rem;
+}
+
+.cart-item-details {
+    flex: 1;
+}
+
+.cart-item-details h3 {
+    margin: 0.5rem 0;
+    font-size: 1.4rem;
+    color: #4a2e2b;
+}
+
+/* Quantity Controls */
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    margin: 0.5rem 0;
+}
+
+.quantity-controls button {
+    background-color: #6b8e23; /* Olive Green */
+    color: #fff;
+    border: none;
+    padding: 0.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 0 0.5rem;
+    transition: background-color 0.3s ease;
+}
+
+.quantity-controls button:hover {
+    background-color: #556b2f; /* Darker Olive */
+}
+
+.quantity-controls input {
+    width: 50px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 0.5rem;
+}
+
+/* Price and Subtotal Text */
+.cart-item-details p {
+    margin: 0.2rem 0;
+    color: #4a2e2b;
+    font-size: 1rem;
+}
+
+/* Cart Summary (Total & Confirm Order) */
+.cart-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: #d9b99b; /* Warm beige */
+    border-radius: 10px;
+}
+
+.cart-summary p {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Confirm Order Button */
+.confirm-order-button {
+    background-color: #6b8e23;
+    color: #fff;
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.confirm-order-button:hover {
+    background-color: #556b2f;
+}
+
+/* Confirmation Popup for Removing Items */
+.cart-popup {
+    display: none; /* Should change to flex when opened */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.cart-popup-content {
+    background-color: #e6ccb2;
+    padding: 2rem;
+    border-radius: 10px;
+    width: 350px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.cart-popup-content p {
+    margin: 1rem 0;
+    font-size: 1.2rem;
+    color: #4a2e2b;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #4a2e2b;
+}
+
+.confirm-remove-button, .cancel-remove-button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    margin: 0.5rem;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.confirm-remove-button {
+    background-color: #6b8e23; /* Olive Green */
+    color: #fff;
+}
+
+.confirm-remove-button:hover {
+    background-color: #556b2f;
+}
+
+.cancel-remove-button {
+    background-color: #b22222; /* Firebrick Red for cancel */
+    color: #fff;
+}
+
+.cancel-remove-button:hover {
+    background-color: #8b1a1a; /* Darker red */
+}
+
+/* Home Address Section */
+.address-section {
+    padding: 1rem 2rem;
+    background-color: #fffaf0;
+    margin-bottom: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.address-section h2 {
+    margin-bottom: 1rem;
+    color: #4a2e2b;
+}
+
+/* Address Textarea */
+.address-textarea {
+    width: 100%;
+    height: 100px;
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    resize: none;          /* Prevent resizing */
+    overflow-y: auto;      /* Enable vertical scrolling */
+    overflow-x: hidden;    /* Hide horizontal scroll */
+    
+}
+
+/* Postal Code Input */
+.postal-code-input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 5px;
+}

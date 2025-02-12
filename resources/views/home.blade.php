@@ -14,7 +14,7 @@
             <a href="{{ route('home') }}">Home</a>
             <a href="{{ route('product') }}">Our Products</a>
             @if(Auth::check())
-            <a href="#">Shopping Cart</a>
+            <a href="{{ route('cart') }}">Shopping Cart</a>
             @endif
         </div>
         <div class="nav-right">
@@ -41,7 +41,8 @@
     <!-- Contact Us -->
     <section class="contact-section">
         <h2>Got any questions? Contact Us!</h2>
-        <form class="contact-form">
+        <form class="contact-form" action="{{ route('sendEmail') }}" method="POST">
+            @csrf
             <input type="text" name="name" placeholder="Enter your name" required>
             <input type="text" name="subject" placeholder="What's the subject?" required>
             <textarea name="message" rows="5" placeholder="Write your message here..." required></textarea>

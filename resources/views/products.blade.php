@@ -15,7 +15,7 @@
             <a href="{{ route('home') }}">Home</a>
             <a href="{{ route('product') }}">Our Products</a>
             @if(Auth::check())
-                <a href="#">Shopping Cart</a>
+                <a href="{{ route('cart') }}">Shopping Cart</a>
             @endif
         </div>
 
@@ -59,56 +59,36 @@
         @foreach($items as $item)
             <div class="item-card">
                 <img src="{{ $item->itemPicture }}" alt="{{ $item->itemName }}" class="item-image">
-    
+
                 <div class="item-details">
                     <h3 class="item-name">{{ $item->itemName }}</h3>
                     <p>Category: {{ $item->category->categoryName }}</p>
                     <p>Price: Rp{{ number_format($item->itemPrice, 0, ',', '.') }}</p>
                     <p>Quantity: {{ $item->itemQuantity }}</p>
                 </div>
-    
-                <!-- Add to Cart Button -->
+
+                <!-- Add to Cart or Out of Stock Button -->
                 @if(Auth::check())
-                    <button class="add-to-cart-button" 
-                        onclick="openCartPopup('{{ $item->itemPicture }}', '{{ $item->itemPrice }}', '{{ $item->itemQuantity }}')">
-                        Add to Cart
-                    </button>
+                    @if($item->itemQuantity > 0)
+                        <form action="{{ route('addToCart') }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="item_id" value="{{ $item->id }}">
+                            <input type="hidden" name="quantity" value="1">
+                            <button type="submit" class="add-to-cart-button">Add to Cart</button>
+                        </form>
+                    @else
+                        <button class="out-of-stock-button" disabled>Out of Stock</button>
+                    @endif
                 @else
-                    <a href="{{ route('getLogin') }}" class="add-to-cart-button">Add to Cart</a>
+                    @if($item->itemQuantity > 0)
+                        <a href="{{ route('getLogin') }}" class="add-to-cart-button">Add to Cart</a>
+                    @else
+                        <button class="out-of-stock-button" disabled>Out of Stock</button>
+                    @endif
                 @endif
             </div>
         @endforeach
     </section>
-    
-    
-    <!-- Add to Cart Popup Modal -->
-    <div id="cartPopup" class="cart-popup">
-        <div class="cart-popup-content">
-            <!-- Close Button -->
-            <span class="close-btn" onclick="closeCartPopup()">&times;</span>
-    
-            <!-- Item Info Section -->
-            <div class="cart-item-info">
-                <img id="popupItemImage" src="" alt="Item Picture" class="popup-item-image">
-                <div class="popup-price-stock">
-                    <p id="popupItemPrice">Rp0</p>
-                    <p id="popupItemStock">Stock: 0</p>
-                </div>
-            </div>
-    
-            <!-- Quantity Selection -->
-            <div class="quantity-selection">
-                <label for="quantity">Quantity:</label>
-                <div class="quantity-controls">
-                    <button onclick="decreaseQuantity()">-</button>
-                    <input type="text" id="quantityInput" value="1" readonly>
-                    <button onclick="increaseQuantity()">+</button>
-                </div>
-            </div>
-    
-            <!-- Final Add to Cart Button -->
-            <button class="final-add-button" onclick="addToCart()">Add to Cart</button>
-        </div>
-    </div>
+
 </body>
 </html>
