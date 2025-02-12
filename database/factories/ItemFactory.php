@@ -23,7 +23,7 @@ class ItemFactory extends Factory
         return [
             'category_id' => $categoryId,
             'itemName' => $this->faker->words(mt_rand(1, 10), true),  
-            'itemPrice' => $this->faker->numberBetween(2, 20000) * 500, // 1k-10m
+            'itemPrice' => $this->faker->numberBetween(2, 20000) * 500,
             'itemQuantity' => $this->faker->numberBetween(0, 10),
             'itemPicture' => $this->faker->imageUrl(640, 480, 'products', true)
         ];

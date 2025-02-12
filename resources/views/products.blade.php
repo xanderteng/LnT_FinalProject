@@ -9,7 +9,6 @@
 </head>
 <body>
 
-    <!-- NavBar -->
     <nav>
         <div class="nav-left">
             <a href="{{ route('home') }}">Home</a>
@@ -31,7 +30,7 @@
         </div>
     </nav>
 
-    <!-- Search & Filter -->
+    
     <section class="search-filter">
         <form action="{{ route('product') }}" method="GET" class="search-form">
             <input type="text" name="search" placeholder="Search items..." class="search-bar">
@@ -54,11 +53,11 @@
     </section>
     
 
-    <!-- Display items -->
+    
     <section class="items-grid">
         @foreach($items as $item)
             <div class="item-card">
-                <img src="{{ $item->itemPicture }}" alt="{{ $item->itemName }}" class="item-image">
+                <img src="{{ asset('storage/itemPicture/' . $item->itemPicture) }}" alt="{{ $item->itemName }}" class="item-image">
 
                 <div class="item-details">
                     <h3 class="item-name">{{ $item->itemName }}</h3>
@@ -67,7 +66,7 @@
                     <p>Quantity: {{ $item->itemQuantity }}</p>
                 </div>
 
-                <!-- Add to Cart or Out of Stock Button -->
+                
                 @if(Auth::check())
                     @if($item->itemQuantity > 0)
                         <form action="{{ route('addToCart') }}" method="POST">

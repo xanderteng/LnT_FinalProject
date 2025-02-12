@@ -3,7 +3,7 @@
 .login-container {
     max-width: 400px;
     margin: 5rem auto;
-    background-color: #fffdd0; /* Cream */
+    background-color: #fffdd0; 
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);

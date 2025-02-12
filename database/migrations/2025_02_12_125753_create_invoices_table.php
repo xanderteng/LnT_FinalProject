@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('invoices', function (Blueprint $table) {
-            $table->uuid('id')->primary();
+            $table->uuid('id')->primary(); 
             $table->string('home_address');
             $table->string('postal_code');
             $table->json('items');

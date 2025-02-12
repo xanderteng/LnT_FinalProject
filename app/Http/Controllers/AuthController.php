@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Log;
 
 class AuthController extends Controller
 {
-    //Show Login
+
     public function getLogin()
     {
         if (Auth::check()) {
@@ -20,7 +20,6 @@ class AuthController extends Controller
         return view('login');
     }
 
-    //Handle Login Form
     public function login(Request $request)
     {
         $request->validate([
@@ -45,6 +44,9 @@ class AuthController extends Controller
 
             Cookie::queue('email', $user->email);
             Log::info($user->email . ' is logged in as ' . $user->role . '.');
+            if ($user->role === 'admin') {
+                return redirect()->route('admin.items');
+            }
             return redirect('/');
         }
 
@@ -53,9 +55,6 @@ class AuthController extends Controller
         ])->onlyInput('email');
     }
 
-
-
-    //Show Register 
     public function getRegister()
     {
         if (Auth::check()) {
@@ -64,7 +63,6 @@ class AuthController extends Controller
         return view('register');
     }
 
-    //Handle Registration Form
     public function register(Request $request)
     {
         $request->validate([
@@ -100,7 +98,6 @@ class AuthController extends Controller
         return redirect()->route('getLogin')->with('success', 'Registration successful! Please login.');
     }
 
-    //Logout
     function logout(Request $request){
         Auth::logout();
         $request->session()->invalidate();

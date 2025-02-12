@@ -1,11 +1,9 @@
-/* Import Navbar Styling from Home */
 @import url('home.css');
 
-/* General Cart Section Styling */
 .cart-section {
     padding: 2rem;
-    background-color: #fffaf0; /* Floral White for a soft earthy background */
-    color: #4a2e2b; /* Deep brown for text */
+    background-color: #fffaf0; 
+    color: #4a2e2b; 
     font-family: 'Arial', sans-serif;
 }
 
@@ -14,11 +12,10 @@
     margin-bottom: 1.5rem;
 }
 
-/* Individual Cart Items */
 .cart-item {
     display: flex;
     align-items: center;
-    background-color: #e6ccb2; /* Light beige */
+    background-color: #e6ccb2; 
     margin-bottom: 1.5rem;
     padding: 1rem;
     border-radius: 10px;
@@ -43,7 +40,6 @@
     color: #4a2e2b;
 }
 
-/* Quantity Controls */
 .quantity-controls {
     display: flex;
     align-items: center;
@@ -51,7 +47,7 @@
 }
 
 .quantity-controls button {
-    background-color: #6b8e23; /* Olive Green */
+    background-color: #6b8e23; 
     color: #fff;
     border: none;
     padding: 0.5rem;
@@ -63,7 +59,7 @@
 }
 
 .quantity-controls button:hover {
-    background-color: #556b2f; /* Darker Olive */
+    background-color: #556b2f;
 }
 
 .quantity-controls input {
@@ -74,21 +70,19 @@
     padding: 0.5rem;
 }
 
-/* Price and Subtotal Text */
 .cart-item-details p {
     margin: 0.2rem 0;
     color: #4a2e2b;
     font-size: 1rem;
 }
 
-/* Cart Summary (Total & Confirm Order) */
 .cart-summary {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-top: 2rem;
     padding: 1rem;
-    background-color: #d9b99b; /* Warm beige */
+    background-color: #d9b99b;
     border-radius: 10px;
 }
 
@@ -97,7 +91,6 @@
     font-weight: bold;
 }
 
-/* Confirm Order Button */
 .confirm-order-button {
     background-color: #6b8e23;
     color: #fff;
@@ -113,9 +106,8 @@
     background-color: #556b2f;
 }
 
-/* Confirmation Popup for Removing Items */
 .cart-popup {
-    display: none; /* Should change to flex when opened */
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
@@ -163,7 +155,7 @@
 }
 
 .confirm-remove-button {
-    background-color: #6b8e23; /* Olive Green */
+    background-color: #6b8e23; 
     color: #fff;
 }
 
@@ -172,15 +164,14 @@
 }
 
 .cancel-remove-button {
-    background-color: #b22222; /* Firebrick Red for cancel */
+    background-color: #b22222; 
     color: #fff;
 }
 
 .cancel-remove-button:hover {
-    background-color: #8b1a1a; /* Darker red */
+    background-color: #8b1a1a;
 }
 
-/* Home Address Section */
 .address-section {
     padding: 1rem 2rem;
     background-color: #fffaf0;
@@ -194,7 +185,6 @@
     color: #4a2e2b;
 }
 
-/* Address Textarea */
 .address-textarea {
     width: 100%;
     height: 100px;
@@ -203,13 +193,12 @@
     border-radius: 5px;
     margin-bottom: 1rem;
     font-size: 1rem;
-    resize: none;          /* Prevent resizing */
-    overflow-y: auto;      /* Enable vertical scrolling */
-    overflow-x: hidden;    /* Hide horizontal scroll */
+    resize: none;          
+    overflow-y: auto;      
+    overflow-x: hidden;    
     
 }
 
-/* Postal Code Input */
 .postal-code-input {
     width: 100%;
     padding: 0.8rem;

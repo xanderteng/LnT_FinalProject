@@ -1,0 +1,194 @@
+@import url('home.css');
+
+body {
+    background-color: #f5f5dc;  
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    background-color: #8b4513; 
+    padding: 1rem 2rem;
+    color: white;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-right: 1.5rem;
+}
+
+nav a:hover {
+    color: #dcdcdc; 
+}
+
+.nav-link-button {
+    background-color: #6b8e23;  
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.nav-link-button:hover {
+    background-color: #556b2f;
+}
+
+.items-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.item-card {
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 400px;
+}
+
+.item-image {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.item-details h3 {
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+}
+
+.item-details p {
+    margin: 0.3rem 0;
+    color: #555;
+}
+
+.admin-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+.edit-button, .delete-button {
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.edit-button {
+    background-color: #6b8e23; 
+    color: white;
+}
+
+.edit-button:hover {
+    background-color: #556b2f; 
+}
+
+.delete-button {
+    background-color: #b22222;  
+    color: white;
+}
+
+.delete-button:hover {
+    background-color: #8b0000; 
+}
+
+.form-section {
+    background-color: #fff;
+    padding: 2rem;
+    max-width: 600px;
+    margin: 2rem auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-section form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-section label {
+    margin: 0.5rem 0 0.25rem; 
+    font-weight: bold;
+}
+
+.form-section input, 
+.form-section select {
+    padding: 0.5rem;
+    margin-bottom: 1rem;  
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.form-section input[type="file"] {
+    padding: 0.3rem;
+}
+
+.submit-button {
+    background-color: #6b8e23;
+    color: #fff;
+    border: none;
+    padding: 0.75rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: #556b2f;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.85rem;
+    margin-top: -0.75rem; 
+    margin-bottom: 0.75rem;
+}
+
+.invoice-section {
+    padding: 2rem;
+    background-color: #f9f9f9;
+}
+
+.invoice-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.invoice-table th, .invoice-table td {
+    padding: 0.8rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.invoice-table th {
+    background-color: #6b8e23;  
+    color: white;
+}
+
+.view-button {
+    background-color: #6b8e23;
+    color: white;
+    padding: 0.4rem 0.8rem;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.view-button:hover {
+    background-color: #556b2f;  
+}

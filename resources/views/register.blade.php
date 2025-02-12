@@ -8,7 +8,7 @@
 </head>
 <body>
 
-    <!-- NavBar -->
+   
     <nav>
         <div class="nav-left">
             <a href="{{ route('home') }}">Home</a>
@@ -16,7 +16,7 @@
         </div>
     </nav>
 
-    <!-- Register Form  -->
+   
     <div class="login-container">
         <h1>Register</h1>
         <form class="login-form" action="{{ route('register') }}" method="POST" novalidate>

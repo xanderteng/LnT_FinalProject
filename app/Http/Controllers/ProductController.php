@@ -33,13 +33,11 @@ class ProductController extends Controller
         return view('products', compact('categories', 'items'));
     }
 
-    // Add item to cart
     public function addToCart(Request $request)
     {
-        $item = Item::findOrFail($request->item_id);  // Retrieve the item details
+        $item = Item::findOrFail($request->item_id); 
         $cart = Session::get('cart', []);
 
-        // Ensure itemQuantity (stock) is stored in the session
         if (isset($cart[$item->id])) {
             $cart[$item->id]['quantity'] += $request->quantity;
         } else {
@@ -48,11 +46,11 @@ class ProductController extends Controller
                 'itemPicture' => $item->itemPicture,
                 'itemPrice' => $item->itemPrice,
                 'quantity' => $request->quantity,
-                'itemQuantity' => $item->itemQuantity  // Ensure itemQuantity (stock) is saved
+                'itemQuantity' => $item->itemQuantity
             ];
         }
 
-        Session::put('cart', $cart);  // Save the updated cart to the session
+        Session::put('cart', $cart);  
 
         return redirect()->route('cart')->with('success', 'Item added to cart!');
     }
@@ -79,7 +77,7 @@ class ProductController extends Controller
             'home_address' => 'required|string|min:5|max:80',
             'postal_code' => [
                 'required',
-                'regex:/^\d{5}$/',  // Ensures postal code is exactly 5 digits
+                'regex:/^\d{5}$/',  
             ],
         ], [
             'home_address.required' => 'Home address is required.',
@@ -90,15 +88,12 @@ class ProductController extends Controller
             'postal_code.regex' => 'Postal code must be exactly 5 digits.',
         ]);
 
-        // Save address to session
         Session::put('home_address', $request->home_address);
         Session::put('postal_code', $request->postal_code);
 
         return redirect()->route('cart')->with('success', 'Address updated successfully!');
     }
 
-
-    // Update Quantity in Cart
     public function updateCart(Request $request)
     {
         $cart = Session::get('cart', []);
@@ -107,7 +102,6 @@ class ProductController extends Controller
             $change = (int)$request->input('quantity_change', 0);
             $cart[$request->item_id]['quantity'] += $change;
 
-            // Ensure quantity stays within valid range
             if ($cart[$request->item_id]['quantity'] < 1) {
                 $cart[$request->item_id]['quantity'] = 1;
             } elseif ($cart[$request->item_id]['quantity'] > $cart[$request->item_id]['itemQuantity']) {
@@ -120,9 +114,6 @@ class ProductController extends Controller
         return redirect()->route('cart');
     }
 
-
-
-    // Remove Item from Cart
     public function removeFromCart(Request $request)
     {
         $cart = Session::get('cart', []);
@@ -156,12 +147,11 @@ class ProductController extends Controller
             return $item['itemPrice'] * $item['quantity'];
         });
 
-        // Generate unique invoice ID
-        $invoiceId = Str::uuid();
+        $invoiceId = (string)Str::uuid();
 
-        // Save invoice to database
         DB::table('invoices')->insert([
             'id' => $invoiceId,
+            'user_id' => Auth::id(),  
             'home_address' => $request->home_address,
             'postal_code' => $request->postal_code,
             'items' => json_encode($cartItems),

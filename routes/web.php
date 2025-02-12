@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\EmailController;
+use App\Http\Controllers\Admin\ItemController;
+
 
 Route::get('/', function () {
     return view('home');
@@ -15,6 +17,16 @@ Route::controller(AuthController::class)->group(function () {
     Route::get('/register', 'getRegister')->name('getRegister');
     Route::post('/register', 'register')->name('register');
     Route::post('/logout', 'logout')->name('logout');
+});
+
+Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
+    Route::get('/items', [ItemController::class, 'index'])->name('admin.items');
+    Route::get('/create', [ItemController::class, 'create'])->name('admin.createItem');
+    Route::post('/store', [ItemController::class, 'store'])->name('admin.storeItem');
+    Route::get('/edit/{id}', [ItemController::class, 'edit'])->name('admin.editItem');
+    Route::post('/update/{id}', [ItemController::class, 'update'])->name('admin.updateItem');
+    Route::delete('/items/{id}', [ItemController::class, 'destroy'])->name('admin.items.delete');
+    Route::get('/invoices', [ItemController::class, 'viewInvoices'])->name('admin.viewInvoices');
 });
 
 Route::controller(ProductController::class)->group(function () {
