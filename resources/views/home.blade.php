@@ -15,6 +15,9 @@
             <a href="{{ route('product') }}">Our Products</a>
             @if(Auth::check())
             <a href="{{ route('cart') }}">Shopping Cart</a>
+            @if(Auth::user()->role === 'admin')
+                <a href="{{ route('admin.items') }}">Manage Items</a>
+            @endif
             @endif
         </div>
         <div class="nav-right">
